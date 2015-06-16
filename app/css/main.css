@@ -1,3 +1,11 @@
+.errorMessage{
+    text-transform: none;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 100px;
+    margin-bottom: -75px;
+}
+
 .fullscreen {
 	height: 100vmin;
 }

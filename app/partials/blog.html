@@ -1,0 +1,69 @@
+<!-- Theme CSS -->
+<link href="css/clean-blog.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/blog.css" rel="stylesheet">
+
+ <!-- Custom Fonts -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/blog/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Our Blog</h1>
+                    <hr class="small">
+                    <span class="subheading">Read our suggestions and thoughts on Travel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <!-- Angular Repeater -->
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- Angular Posts -->
+            <div ng-repeat="post in posts">
+                <div class="blogpost-preview">
+                    <a href="#/blog/{{ post.url }}/">
+                        <h2 class="blogpost-title"> {{ post.title }} </h2>
+                        <h3 class="blogpost-subtitle">{{ post.snippet }} </h3>
+                    </a>                 
+                    <p class="blogpost-meta">Posted by <a href=''>{{ post.author }}</a> on {{ post.date }}</p>
+                </div>
+                <hr>
+            </div>
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+
+<!-- jQuery -->
+<script src="js/style/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/style/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="js/style/classie.js"></script>
+<script src="js/style/cbpAnimatedHeader.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/style/clean-blog.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/style/agency.js"></script>
