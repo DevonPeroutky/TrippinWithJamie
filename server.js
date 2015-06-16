@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
 
 app.get('/send', function(req, res) {
 	var mailOptions={
-		to : "devonperoutky@gmail.com",
+		to : "trippinwithjamie@gmail.com",
 		subject : "Travel Inquiry from " + req.query.name,
 		text : buildMessage(req.query.name, req.query.email, req.query.phone, req.query.message)
 	}
