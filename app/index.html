@@ -10,14 +10,8 @@
 
     <title>Trippin' With Jamie!!!</title>
 
-    <!-- Angular ??? -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>    
-
-    <!-- Custom Angular-->
-    <script type="text/javascript" src="js/logic/app.js"></script>
+    <!-- Loading Spinner -->
+    <link rel="stylesheet" href="css/spinner/main.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"></link>
@@ -27,9 +21,20 @@
     <link href="css/main.css" rel="stylesheet"></link>    
 </head>
 
-<body id="main" class="index">
+<body ng-controller="loadingCtrl">
+
+    <!-- Loading -->
+    <div id="demo-content">
+        <div id="loader-wrapper"> 
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+    </div>
+    <!-- End of Loading -->
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-default navbar-fixed-top" id='mainNav'>
+    <nav class="navbar navbar-default navbar-fixed-top" ng-show="loaded" ng-cloak>
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -91,9 +96,17 @@
             </div>
         </div>
     </footer>
-    
-    <!-- jQuery -->
-    <script src="js/style/jquery.js"></script>
+
+    <!-- Jquery -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>    
+
+    <!-- Custom Angular-->
+    <script type="text/javascript" src="js/logic/app.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/style/bootstrap.min.js"></script>

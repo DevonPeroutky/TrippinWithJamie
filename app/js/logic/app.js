@@ -23,13 +23,10 @@ twjApp.config(function($routeProvider) {
 });
 
 /* Controllers */
-twjApp.controller('postCtrl', ['$scope', '$routeParams', 'Posts', function($scope, $routeParams, Posts) {
-    $scope.post = Posts.get({postId: $routeParams.postId}, function(post){
-        console.log("Success?!?!?");
-    });
-}]);
-
 twjApp.controller('formCtrl', ['$scope', '$http', function($scope, $http) {
+    console.log("formCtrl!");
+
+    // Declarations
     $scope.button = "Send Message";
     $scope.formData = {};
 
@@ -56,10 +53,19 @@ twjApp.controller('formCtrl', ['$scope', '$http', function($scope, $http) {
             $scope.message = "Error sending the message. Email us directly at trippinwithjamie@gmail.com";
             $scope.button = "Error!";
         });
-    };
+    };   
 }]);
 
-twjApp.controller('blogCtrl', ['$scope', 'Posts', function($scope, Posts) {
-    console.log("WHY");
-    $scope.posts = Posts.query();
+twjApp.controller('tempCtrl', ['$scope', function($scope, Posts) {
+    console.log("tempCtrl");
+}]);
+
+twjApp.controller('loadingCtrl', ['$scope', function($scope) {
+    console.log("loadingCtrl");
+
+    // End Loading animation and render the page 
+    var body = angular.element(document.querySelector("body"));
+    body.addClass('loaded');
+
+    $scope.loaded='true';
 }]);
