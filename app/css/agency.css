@@ -262,12 +262,9 @@ fieldset[disabled] .btn-xl.active {
 }
 
 header {
+    background: url(../img/locations/alaska.jpg) no-repeat top center fixed;
     text-align: center;
     color: #fff;
-    background-attachment: scroll;
-    background-image: url(../img/locations/alaska.jpg);
-    background-position: center center;
-    background-repeat: none;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
