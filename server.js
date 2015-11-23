@@ -5,6 +5,13 @@ var morgan = require('morgan');             // log requests to the console (expr
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var nodemailer = require("nodemailer");
+var compression = require('compression');
+
+// Cache TTL
+var oneDay = 86400000;
+
+// compress all requests 
+app.use(compression())
 
 // email =========================
 var smtpTransport = nodemailer.createTransport("SMTP",{
@@ -30,8 +37,8 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-app.use(express.static(__dirname + '/app'));                 // set the static files location /public/img will be /img for users
+app.use('/bower_components',  express.static(__dirname + '/bower_components', { maxAge: oneDay }));
+app.use(express.static(__dirname + '/app', { maxAge: oneDay }));                 // set the static files location /public/img will be /img for users
 
 // Angular Route  ==================================
 app.get('/', function(req, res) {
@@ -57,12 +64,13 @@ app.get('/send', function(req, res) {
 });
 
 // Error Handling  ==================================
+/*
 app.get('*', function(req, res, next) {
 	console.log("404 error!");
 	var err = new Error();
 	err.status = 404;
 	next(err);
-});
+});*/
 
 // handling 404 errors
 app.use(function(err, req, res, next) {
@@ -74,6 +82,6 @@ app.use(function(err, req, res, next) {
 });
 
 // listen (start app with node server.js) ======================================
-var portNumber = 80;
+var portNumber = 8080;
 app.listen(portNumber);
 console.log("App listening on port " + portNumber);
